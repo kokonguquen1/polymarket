@@ -749,16 +749,3 @@ def main_loop(args):
             print("Fatal error:", e)
 
         time.sleep(300)
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Simmer FastLoop Trading Skill")
-    parser.add_argument("--live", action="store_true")
-    parser.add_argument("--positions", action="store_true")
-    parser.add_argument("--config", action="store_true")
-    parser.add_argument("--smart-sizing", action="store_true")
-    parser.add_argument("--quiet", "-q", action="store_true")
-    args = parser.parse_args()
-
-    main_loop(args)
-
