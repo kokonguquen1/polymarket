@@ -735,7 +735,7 @@ if __name__ == "__main__":
     )
 import time
 
-if __name__ == "__main__":
+def main_loop(args):
     while True:
         try:
             run_fast_market_strategy(
@@ -748,4 +748,17 @@ if __name__ == "__main__":
         except Exception as e:
             print("Fatal error:", e)
 
-        time.sleep(60)
+        time.sleep(300)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Simmer FastLoop Trading Skill")
+    parser.add_argument("--live", action="store_true")
+    parser.add_argument("--positions", action="store_true")
+    parser.add_argument("--config", action="store_true")
+    parser.add_argument("--smart-sizing", action="store_true")
+    parser.add_argument("--quiet", "-q", action="store_true")
+    args = parser.parse_args()
+
+    main_loop(args)
+
