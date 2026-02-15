@@ -158,10 +158,13 @@ SIMMER_BASE = os.environ.get("SIMMER_API_BASE", "https://api.simmer.markets")
 
 
 def get_api_key():
-    key = os.environ.get("SIMMER_API_KEY")
+    key = (
+        os.getenv("SIMMER_API_KEY")
+        or os.getenv("RAILWAY_SIMMER_API_KEY")
+    )
     if not key:
         print("Error: SIMMER_API_KEY environment variable not set")
-        print("Get your API key from: simmer.markets/dashboard → SDK tab")
+        print("Available env keys:", list(os.environ.keys()))
         sys.exit(1)
     return key
 
