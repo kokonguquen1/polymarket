@@ -1,2 +1,0 @@
-requests
-add minimal requirements.txt
