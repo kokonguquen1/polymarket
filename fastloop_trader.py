@@ -733,3 +733,19 @@ if __name__ == "__main__":
         smart_sizing=args.smart_sizing,
         quiet=args.quiet,
     )
+import time
+
+if __name__ == "__main__":
+    while True:
+        try:
+            run_fast_market_strategy(
+                dry_run=not args.live,
+                positions_only=args.positions,
+                show_config=args.config,
+                smart_sizing=args.smart_sizing,
+                quiet=args.quiet,
+            )
+        except Exception as e:
+            print("Fatal error:", e)
+
+        time.sleep(60)
